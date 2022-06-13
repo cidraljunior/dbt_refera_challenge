@@ -1,0 +1,14 @@
+version: 2
+
+models:
+version: 2
+
+models:
+  - name: stg_customers
+  - name: stg_employees
+  - name: stg_offices
+  - name: stg_orderdetails
+  - name: stg_orders
+  - name: stg_payments
+  - name: stg_productlines
+  - name: stg_products

@@ -1,0 +1,15 @@
+config:
+  send_anonymous_usage_stats: false
+  debug: false
+  use_colors: false
+  write_json: false
+
+dbt_refera_challenge:
+  target: dev
+  outputs:
+    prod:
+      type: athena
+      s3_staging_dir: s3://datalake-stage-refera-challenge/dbt/
+      region_name: us-east-1
+      schema: dbt
+      database: awsdatacatalog
