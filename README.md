@@ -56,4 +56,29 @@ dbt test
 
 ### Rodando em produção
 
-Dentro de profiles está o profile com o DW de produção. O dbt está rodando atravês de uma lambda function que é triggada quando o processamento do Glue é finalizado.
+Dentro de profiles está o profile com o DW de produção. O dbt está rodando atravês de uma lambda function que é schedulada pelo cloudwatch event.
+
+### Deploy
+
+Tendo a transformação validada em schema pessoal o processo de atualização se da por:
+
+**Atenção:** Para se gerar uma nova versão deve se atualizar a versão do projeto em `dbt_project.yml`
+
+1. Release da nova imagem dbt no ecr
+
+```bash
+make build_image
+make push_image
+```
+
+2. Atualização da imagem na lambda:
+
+```bash
+make terraform_plan
+```
+
+3. Verificado que a imagem será bumpada na lambda pode se seguir para aplicar a atualização:
+
+```bash
+make terraform_apply
+```
