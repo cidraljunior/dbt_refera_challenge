@@ -28,7 +28,7 @@ dbt_refera_challenge:
   outputs:
     dev:
       type: athena
-      s3_staging_dir: s3://datalake-stage-refera-challenge/dbt/
+      s3_staging_dir: s3://data-warehouse-refera-challenge/dbt/
       region_name: us-east-1
       schema: dbt_aluizio
       database: awsdatacatalog
